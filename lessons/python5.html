@@ -1,0 +1,18 @@
+<h1>5. Modulele</h1>
+<h2>Ce este un modul?</h2>
+<p>Luați în considerare un modul ca același lucru cu o bibliotecă de coduri.</p>
+<p>Un fișier care conține un set de funcții pe care doriți să le includeți în aplicația dvs.</p>
+<p>Există mai multe module încorporate în Python, pe care le puteți importa oricând doriți.</p>
+<br>
+<p>Python are un modul numit timp pentru a gestiona sarcinile legate de timp. Pentru a utiliza funcțiile definite în modul, trebuie mai întâi să importăm modulul.</p>
+<pre>import time</pre>
+<p>Funcția <code>time()</code> returnează numărul de secunde trecute de la epocă.</p>
+<p>Pentru sistemul Unix, 1 ianuarie 1970, 00:00:00 la UTC este epoca (punctul în care începe timpul).</p>
+<pre>import time
+secunde = time.time()
+print("Secunde trecute de la epoca =", secunde)</pre>
+<p>Modulul matematic este un modul standard în Python și este întotdeauna disponibil. Pentru a utiliza funcții matematice sub acest modul, trebuie să importați modulul folosind <code>import math</code>.</p>
+<pre>import math
+print(math.sqrt(4))  # va afisa valoarea 2, rezultatul radicalului lui 4</pre>
+<h2>Cerință</h2>
+<p>Să se afișeze toți radicalii numerelor de la 1 la 30, folosind o buclă <code>for</code> și modulul <code>math</code>. De asemenea se va afișa ora, minutul și secunda înainte de începerea operațiilor, dar și după finalul acestora.</p>

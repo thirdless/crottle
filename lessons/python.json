@@ -1,0 +1,27 @@
+[
+    {
+        "title": "Introducere în Python",
+        "guide": "lessons/python1.html",
+        "modules": ["time"]
+    },
+    {
+        "title": "Variabilele",
+        "guide": "lessons/python2.html",
+        "modules": ["time"]
+    },
+    {
+        "title": "Funcțiile",
+        "guide": "lessons/python3.html",
+        "modules": ["time"]
+    },
+    {
+        "title": "Buclele",
+        "guide": "lessons/python4.html",
+        "modules": ["time"]
+    },
+    {
+        "title": "Modulele",
+        "guide": "lessons/python5.html",
+        "modules": ["time", "math"]
+    }
+]

@@ -1,0 +1,9 @@
+<main class="error--page">
+    <h1><%= code %>.</h1>
+    <% if(code == 404){ %>
+    <p>Această pagină nu există.</p>
+    <% } else if(code == 500) { %>
+    <p>Serverul nu a putut prelucra această cerere.</p>
+    <% } %>
+    <a href="/" class="button">Înapoi la pagina principală</a>
+</main>

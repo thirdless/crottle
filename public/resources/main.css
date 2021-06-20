@@ -1,0 +1,1380 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+a{
+    color:inherit;
+    text-decoration: inherit;
+}
+
+input:focus, textarea:focus, button:focus, select:focus{
+    outline: 0;
+}
+
+svg{
+    fill:currentColor;
+}
+
+:root{
+    --white-color: #eee;
+    --black-color: #111;
+    --shadow-low:rgba(0,0,0,.3);
+    --shadow-high:rgba(0,0,0,.7);
+}
+
+.generic--button{
+    padding:.75em 1em;
+    background:linear-gradient(to right, #355C7D, #6C5B7B);
+    border-radius:.5em;
+    box-shadow: 0 0 1em var(--shadow-low);
+    transition:box-shadow .3s ease;
+    border:none;
+    cursor:pointer;
+}
+
+.generic--button:hover{
+    box-shadow:0 0 1em var(--shadow-high);
+}
+
+.python{
+    --accent-color: #3776ab;
+}
+
+.javascript{
+    --accent-color: #f1e05a;
+}
+
+.cplusplus{
+    --accent-color: #f34b7d;
+}
+
+.general{
+    --accent-color: #aaa;
+}
+
+body{
+    background: linear-gradient(to right, #ECE9E6, #fff);
+    color:var(--black-color);
+    font-family:"Montserrat", sans serif;
+    font-weight: 500;
+    cursor:default;
+}
+
+body:not(.class--page) header{
+    height:1.5em;
+    font-size:1.5em;
+    width:80vw;
+    margin:0 auto;
+    padding:2em 0;
+    box-sizing:content-box;
+}
+
+body:not(.class--page) header .logo, body:not(.class--page) header nav{
+    display:inline-block;
+}
+
+header .right-align{
+    float:right;
+}
+
+header nav a{
+    display:inline-block;
+    font-size:.8em;
+    font-weight: 600;
+    margin:0 .3em;
+}
+
+header nav a.current{
+    opacity:.5;
+}
+
+header nav svg, header nav .user img{
+    fill: currentColor;
+    width:1.3em;
+    height:1.3em;
+    display:inline-block;
+    vertical-align: middle;
+    margin-top:-.25em;
+    margin-right:.3em;
+}
+
+header nav .user svg, header nav .user img{
+    border-radius: 50%;
+    overflow:hidden;
+}
+
+header nav .logout{
+    color: #C62828;
+}
+
+header .logo, .landing--page main .logo, .login--page main .logo{
+    height:1.5em;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+}
+
+header .logo img, .landing--page main .logo img, .login--page .logo img{
+    margin-top:-.2em;
+    height:100%;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.landing--page{
+    position:relative;
+}
+
+.landing--page main{
+    min-height:100vh;
+    cursor:default;
+    position: relative;
+    background: var(--white-color);
+}
+
+.landing--page main .logo{
+    font-size:1.4em;
+    margin-bottom:1em;
+}
+
+.landing--page .content{
+    width: 50vw;
+    box-sizing: border-box;
+    padding-left: 10vw;
+    position:absolute;
+    top:50%;
+    transform:translate(0,-50%);
+    z-index:2;
+}
+
+.landing--page .content p{
+    margin:1.5em 0;
+    line-height:1.4em;
+}
+
+.landing--page .content a{
+    color:var(--white-color);
+    font-weight: 700;
+    margin-top:.5em;
+    display:inline-block;
+}
+
+.landing--background, .login--background{
+    z-index:1;
+    position: absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    width:60vw;
+    overflow:hidden;
+}
+
+@keyframes background-slide{
+    0%{background-position:0 0;}
+    50%{background-position:0 100%;}
+    100%{background-position: 0 200%;}
+}
+
+.landing--background .background, .login--background .background{
+    position:absolute;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    z-index:0;
+    background: linear-gradient(to bottom, #3a6186, #89253e, #3a6186);
+    background-repeat: repeat-y;
+    background-size: 100% 200%;
+    animation: background-slide 10s linear infinite; 
+}
+
+.login--background .background{
+    background-image: linear-gradient(to bottom, #FF4E50, #F9D423, #FF4E50);
+}
+
+.landing--background .overlay, .login--background .overlay{
+    position:relative;
+    height:100%;
+    width:100%;
+    z-index:1;
+}
+
+.landing--background img{
+    position:absolute;
+    z-index:2;
+    top:0;
+    right:0;
+    height:100%;
+}
+
+.login--page{
+    background: var(--white-color);
+}
+
+.login--page main{
+    text-align:center;
+    position:absolute;
+    top:50%;
+    left:50%;
+    z-index:2;
+    font-size:1.1em;
+    transform:translate(-50%,-50%);
+}
+
+.login--page main .logo{
+    font-size:1.5em;
+    margin-bottom:1em;
+    cursor:default;
+}
+
+.login--page .container{
+    box-shadow: 0 0 1em var(--shadow-low);
+    border-radius:.5em;
+    background:var(--white-color);
+    display: inline-block;
+}
+
+.login--page form input{
+    background:none;
+    border:none;
+    font-family:inherit;
+    font-size:inherit;
+    display: inline-block;
+    vertical-align: middle;
+    width:20vw;
+}
+
+.login--page form div{
+    padding:1em;
+    margin:1.5em;
+    border-radius: .5em;
+    box-shadow: 0 0 1em var(--shadow-low);
+}
+
+.login--page form svg{
+    width:1.2em;
+    height:1.2em;
+    margin-right:.5em; 
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.login--page form button{
+    font-family: inherit;
+    margin-bottom:1.5em;
+    font-size:1em;
+}
+
+.login--page form div, .login--page form button{
+    background-image: linear-gradient(to right, rgba(255, 78, 80, .75), rgba(249, 212, 35, .75));
+}
+
+.login--page form .change{
+    cursor:pointer;
+    font-size:.85em;
+    margin-left:1em;
+}
+
+.login--page form .change svg{
+    margin-right:.2em;
+    width:1em;
+    height:1em;
+}
+
+.class--page{
+    font-family:"Ubuntu Mono", monospace;
+    --header-size: 3rem;
+}
+
+.class--page header{
+    height: var(--header-size);
+    background: var(--black-color);
+    overflow:hidden;
+}
+
+.class--page .navigation{
+    float:right;
+}
+
+.class--page header div{
+    height:100%;
+    display:inline-block;
+    color: var(--white-color);
+    font-size:1.1em;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+
+.class--page header>div div{
+    padding:0.75em;
+    cursor:pointer;
+}
+
+.class--page header div.disabled{
+    background:#616161;
+    color:var(--black-color);
+    cursor:not-allowed;
+}
+
+.class--page header svg{
+    height: 1em;
+    width: 1em;
+    margin-right:.5em;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.class--page header .run{
+    background: linear-gradient(to right, #FF416C, #FF4B2B);
+}
+
+.class--page header .hints{
+    background: #FFAB00;
+    color: var(--black-color);
+}
+
+.class--page header .next{
+    background: linear-gradient(to right, #0575E6, #021B79);
+}
+
+.class--page main{
+    height: calc(100vh - var(--header-size));
+    font-size:0;
+}
+
+.class--page .--row{
+    width:55%;
+    height:100%;
+    display:inline-block;
+    vertical-align: top;
+    font-size:1rem;
+}
+
+.class--page .--row:last-of-type{
+    width:45%;
+}
+
+.class--editor{
+    position: relative;
+    font-size:1.2em;
+    width:100%;
+    height:70%;
+    color: var(--white-color);
+    background:#0F2027;
+    overflow:hidden;
+
+    --line-counter-width: 1.5em;
+}
+
+.class--editor textarea, .class--editor pre{
+    font-family:inherit;
+    font-size:inherit;
+    color:inherit;
+    width:calc(100% - var(--line-counter-width));
+    height:100%;
+    letter-spacing: 0.05em;
+    box-sizing: border-box;
+    padding:.5em;
+    margin-left:var(--line-counter-width);
+}
+
+.class--editor textarea{
+    /* color:transparent; */
+    caret-color: var(--white-color);
+    background:transparent;
+    z-index:1;
+    position:absolute;
+    top:0;
+    left:0;
+    resize: none;
+    border:none;
+    white-space: nowrap;
+}
+
+.class--editor .line--counter{
+    font-family: inherit;
+    width:var(--line-counter-width);
+    position:absolute;
+    left:0;
+    top:0;
+    padding:.55em 0;
+    text-align:right;
+    opacity:.4;
+    box-sizing: border-box;
+    padding-right:.1em;
+}
+
+.class--output{
+    width:100%;
+    height:30%;
+    background: var(--black-color);
+    color: var(--white-color);
+    box-sizing: border-box;
+    padding:.5em;
+    font-size:1.2em;
+    overflow: auto;
+}
+
+.class--output span.error{
+    color: #EF9A9A
+}
+
+.class--instructions{
+    height:100%;
+    overflow:auto;
+    box-sizing: border-box;
+    padding:1em;
+    font-family:"Montserrat", sans serif;
+}
+
+.class--instructions h1, .class--instructions h2{
+    margin:1em 0;
+}
+
+.class--instructions p{
+    margin:1em 0;
+}
+
+.class--instructions pre{
+    background: var(--black-color);
+    color:var(--white-color);
+    padding:1em;
+    border-radius:.5em;
+    margin:1em 0;
+    white-space: pre-wrap;
+}
+
+.class--instructions code{
+    background: var(--black-color);
+    color: var(--white-color);
+    font-family:"Ubuntu Mono";
+    padding:.15em .3em;
+    border-radius:.3em;
+}
+
+.class--instructions img{
+    max-width:70%;
+    display:block;
+    margin:1em auto;
+}
+
+.class--page ::-webkit-scrollbar{
+    width:12px;
+    height:12px;
+}
+
+.class--page ::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+.class--page .class--instructions::-webkit-scrollbar-thumb{
+    background: var(--black-color);
+    border: 3px solid transparent;
+    background-clip: content-box;
+}
+
+.class--page ::-webkit-scrollbar-thumb{
+    background: var(--white-color);
+    border-radius:5px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+}
+
+.classlist--page main, .user--page main, .forum--page main{
+    width:80vw;
+    margin:0 auto 2em;
+}
+
+main .main-title{
+    font-size:3.5em;
+    font-weight: 800;
+    margin:1.5em 0 .4em;
+}
+
+main .main-subtitle{
+    font-size:1.75em;
+    font-weight:700;
+    margin-bottom:1em;
+}
+
+.user--page .main-title{
+    font-size:2em;
+}
+
+main .main-title img, main .main-title svg{
+    border-radius:50%;
+    overflow:hidden;
+    width:3em;
+    height:3em;
+    display:inline-block;
+    vertical-align: middle;
+    margin:-.2em .5em 0 0;
+}
+
+.classlist--page .courses-list .soon{
+    opacity:.5;
+    padding:.7em .75em 0;
+}
+
+.classlist--page .courses-list a, .classlist--page .courses-list div{
+    color:var(--accent-color);
+    border:.15em solid currentColor;
+    display:inline-block;
+    vertical-align: top;
+    height:2em;
+    padding:.5em .75em .2em;
+    border-radius:1.5em;
+    font-weight:700;
+    margin-right:1em;
+}
+
+.classlist--page .courses-list svg{
+    width:2em;
+    height:2em;
+    margin:-.2em .3em 0 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.classlist--page .lessons-list{
+    margin:3em 0;
+    counter-reset: lesson-count;
+}
+
+.classlist--page .lessons-list a{
+    position: relative;
+    padding:1em 0;
+    display:block;
+    font-weight: 700;
+    font-size:1.2em;
+}
+
+.classlist--page .lessons-list a div{
+    border:.15em solid currentColor;
+    border-radius:50%;
+    width:2em;
+    height:2em;
+    box-sizing: border-box;
+    display:inline-block;
+    vertical-align: middle;
+    margin:-.3em 1em 0 0;
+}
+
+.classlist--page .lessons-list a:not(:first-of-type)::before{
+    content:"";
+    display:block;
+    position:absolute;
+    height: 1.75em;
+    width:.15em;
+    background: currentColor;
+    left:.9em;
+    bottom:80%;
+}
+
+.classlist--page .lessons-list a.locked{
+    opacity: .25;
+    pointer-events: none;
+}
+
+.classlist--page .lessons-list a:not(.locked) div::before{
+    content:counter(lesson-count);
+    counter-increment: lesson-count;
+    font-size:1.1em;
+    display:block;
+    text-align: center;
+    line-height:1.6em;
+}
+
+.classlist--page .lessons-list a svg{
+    width:70%;
+    height:70%;
+    margin:15% 0 0 16%;
+}
+
+.forum--side{
+    width:29%;
+    display: inline-block;
+    vertical-align: top;
+    position:sticky;
+    top:2em;
+    box-sizing: border-box;
+    padding: .5em 2em 2em;
+}
+
+.forum--side div{
+    display: block;
+    cursor:pointer;
+    font-size:1.25em;
+    font-weight: 600;
+    margin:.75em 0;
+}
+
+.forum--side .search{
+    font-size:1.5em;
+    font-weight: 700;
+    margin-bottom:2em;
+}
+
+.forum--side svg{
+    width:1.3em;
+    height:1.3em;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top:-.3em;
+}
+
+.forum--page .forum--posts.search-mode{
+    float:left;
+}
+
+.forum--page .forum--posts p{
+    text-align: center;
+    font-size:1.2em;
+    font-weight: 700;
+}
+
+.forum--page .forum-subtitle{
+    width:70%;
+    display: inline-block;
+}
+
+.forum--page .forum--posts a, .forum--page .forum--create{
+    display:block;
+    background: #fff;
+    box-shadow:0 0 1em rgba(0,0,0,.05);
+    border-radius:1em;
+    font-size:1em;
+    padding:1.5em;
+    box-sizing: border-box;
+    margin:1em 0;
+}
+
+.forum--page .forum--posts, .forum--page .forum--create{
+    width:70%;
+    display: inline-block;
+}
+
+.forum--page .forum--posts a .title{
+    font-weight: 700;
+    font-size:1.3em;
+    display: block;
+    margin-bottom:1em;
+}
+
+.forum--page .forum--posts a > *{
+    display:inline-block;
+}
+
+.forum--page .forum--posts a .date{
+    opacity:.7;
+    margin-left:.5em;
+}
+
+.forum--page .forum--posts a .info{
+    float:right;
+}
+
+.forum--page .forum--posts a .info span{
+    margin:0 .25em;
+}
+
+.forum--page .forum--posts a .lang{
+    background: var(--accent-color);
+    color: rgba(0,0,0,.8);
+    padding:.4em .6em;
+    border-radius:1em;
+}
+
+.forum--page .forum--posts a svg, .forum--page .forum--posts a img{
+    width:1.5em;
+    height:1.5em;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top:-.3em;
+}
+
+.forum--page .forum--posts a img{
+    border-radius: 50%;
+}
+
+.forum--create{
+    text-align: right;
+}
+
+.forum--page .forum--create textarea, .forum--page .forum--create input{
+    font-family:inherit;
+    width:100%;
+    resize: none;
+    border:none;
+    font-size:inherit;
+    margin-bottom:.75em;
+    height:1.2em;
+}
+
+.forum--page .forum--create input{
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+.forum--page .forum--create button, .comment--create button{
+    font-family: inherit;
+    font-weight: 700;
+    font-size: inherit;
+    border: none;
+    background: rgba(0,0,0,.8);
+    color: var(--white-color);
+    padding:.7em;
+    border-radius:.5em;
+    box-shadow: 0 0 1em var(--shadow-low);
+    cursor: pointer;
+}
+
+.forum--page .forum--create select{
+    border: none;
+    padding:.7em;
+    font-family: inherit;
+    font-weight: 700;
+    font-size:inherit;
+    border-radius:.5em;
+    margin-right:.5em;
+    cursor: pointer;
+    color: inherit;
+    background: rgba(0,0,0,.1);
+}
+
+.user--page .user-split{
+    margin-top:3em;
+}
+
+.user--page .user-split>div{
+    display: inline-block;
+    vertical-align: top;
+    width:65%;
+}
+
+.user--page .user-split>div:first-of-type{
+    width:34%;
+}
+
+.user--forum a{
+    background: #fff;
+    border-radius:1em;
+    box-shadow: 0 0 1em rgba(0,0,0,.05);
+    display:block;
+    width:100%;
+    padding:1.5em;
+    box-sizing: border-box;
+    margin: 1em 0;
+}
+
+.user--forum a > * {
+    display: inline-block;
+    font-size:1.1em;
+}
+
+.user--forum .title{
+    font-size:1.3em;
+    font-weight: 700;
+    margin-bottom:1em;
+    display: block;
+}
+
+.user--forum a svg, .user--forum a img{
+    width:1.5em;
+    height:1.5em;
+    margin-top:-.2em;
+    display: inline-block;
+    vertical-align:middle;
+    border-radius:50%;
+}
+
+.user--forum .date{
+    opacity:.7;
+    font-size:1em;
+    margin-left:.5em;
+}
+
+.user--forum .info{
+    float:right;
+}
+
+.user--forum .lang{
+    background: var(--accent-color);
+    padding: .4em .6em;
+    border-radius:1em;
+    color: rgba(0,0,0,.8);
+    margin-right:.5em;
+}
+
+.user--data{
+    position:sticky;
+    top:2em;
+}
+
+.user--data p{
+    margin:.5em 0;
+}
+
+.user--data p span{
+    width:1em;
+    height:1em;
+    border-radius:50%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right:.5em;
+    margin-top:-.2em;
+}
+
+span.online{
+    background: #2E7D32;
+}
+
+span.offline{
+    background: #777;
+}
+
+.user--data h3{
+    margin:1.5em 0 .5em;
+    font-size:1.4em;
+}
+
+.user--page .private{
+    font-weight: 700;
+    font-size:1.3em;
+    margin-top:2em;
+}
+
+.user--page .private svg{
+    width:1.5em;
+    height:1.5em;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right:.5em;
+    margin-top:-.2em;
+}
+
+.user--page .user--data .settings, .user--page .user--data .admin{
+    cursor:pointer;
+    font-weight:700;
+    font-size:1.4em;
+    margin-bottom:1.5em;
+    display:inline-block;
+}
+
+.user--page .user--data .settings svg, .user--page .user--data .admin svg{
+    width:1.5em;
+    height:1.5em;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right:.5em;
+    margin-top:-.2em;
+}
+
+.user--page .user--data .twitter{
+    display: inline-block;
+    margin-top:.3em;
+    font-weight: 700;
+}
+
+.user--page .user--data .twitter svg{
+    width:1.5em;
+    height:1.5em;
+    display: inline-block;
+    vertical-align:middle;
+    color: #00acee;
+    margin-top:-.2em;
+    margin-right:.3em;
+}
+
+.--notification{
+    position:fixed;
+    bottom:1em;
+    right:1em;
+    background: #FFCDD2;
+    color: var(--black-color);
+    font-weight: 700;
+    font-size:1.1em;
+    cursor:pointer;
+    box-shadow: 0 0 1em var(--shadow-low);
+    padding:1.2em;
+    border-radius:.5em;
+    opacity:0;
+    transition: opacity .3s ease;
+    font-family:"Montserrat";
+    z-index:50;
+}
+
+.--notification.show{
+    opacity: 1;
+}
+
+.--notification svg{
+    height: 1.5em;
+    width: 1.5em;
+    margin-top:-.2em;
+    margin-right:.5em;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.post--page{
+    width:80vw;
+    margin:0 auto 2em;
+}
+
+.post--page .post--context{
+    width:70vw;
+    background: #fff;
+    padding: 2em;
+    box-sizing: border-box;
+    border-radius:1em;
+    margin-top:3em;
+    box-shadow: 0 0 1em rgba(0,0,0,.05);
+    font-size:1.05em;
+}
+
+.post--context h1{
+    font-size:1.5em;
+    margin-bottom:1em;
+}
+
+.post--content{
+    word-wrap: break-word;
+}
+
+.post--content .big{
+    font-size:1.3em;
+    font-weight: 600;
+}
+
+.post--content .small{
+    font-size:.85em;
+    color: rgba(0,0,0,.7);
+}
+
+.post--content .img{
+    max-width:60%;
+    box-shadow:0 0 1em var(--shadow-low);
+}
+
+.post--details{
+    margin-top:1.5em;
+}
+
+.post--details > *{
+    display: inline-block;
+}
+
+.post--details .date{
+    opacity:.7;
+    margin-left:.5em;
+}
+
+.post--details .user svg, .post--details .user img{
+    width:1.5em;
+    height:1.5em;
+    border-radius:50%;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top:-.2em;
+}
+
+.post--details .info{
+    float:right;
+}
+
+.post--details .info span{
+    margin:0 .25em;
+}
+
+.post--details .lang{
+    background: var(--accent-color);
+    color: rgba(0,0,0,.8);
+    padding: .4em .6em;
+    border-radius: 1em;
+}
+
+.post--details .comments svg{
+    width:1.5em;
+    height:1.5em;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top:-.2em;
+}
+
+.post--details .delete{
+    cursor:pointer;
+    display: inline-block;
+    vertical-align: middle;
+    color: #E53935;
+    margin-left:.5em;
+}
+
+.post--details .delete svg{
+    width:1.5em;
+    height:1.5em;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top:-.2em;
+    margin-right:.25em;
+}
+
+.post--comment .post--details .delete{
+    float:right;
+}
+
+.post--comments{
+    margin-top:3em;
+}
+
+.post--comment, .comment--create{
+    width:65vw;
+    background: #fff;
+    padding: 2em;
+    box-sizing: border-box;
+    border-radius:1em;
+    margin-top:1em;
+    box-shadow: 0 0 1em rgba(0,0,0,.05);
+    font-size:1.05em;
+}
+
+.comment--create{
+    text-align: right;
+}
+
+.comment--create textarea{
+    background:none;
+    border:none;
+    resize:none;
+    font-family: inherit;
+    font-size:1em;
+    width:100%;
+    height:1.2em;
+}
+
+.comment--create button{
+    margin-top:1em;
+    font-size:.85em;
+}
+
+.comment--content{
+    word-wrap: break-word;
+}
+
+.--dialog{
+    position:fixed;
+    background: var(--white-color);
+    top:50%;
+    left:50%;
+    z-index:45;
+    transform:translate(-50%,-50%);
+    border-radius:1em;
+    box-shadow:0 0 1em rgba(0,0,0,.05);
+    padding:4em;
+    max-width:80vw;
+}
+
+.--dialog ul{
+    list-style-position:inside;
+}
+
+.--dialog-overlay{
+    position:fixed;
+    z-index:40;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    background: var(--shadow-high);
+}
+
+.error--page{
+    position:fixed;
+    top:50%;
+    left:0;
+    transform:translate(0,-50%);
+    width:100%;
+    text-align: center;
+}
+
+.error--page h1{
+    background-image:linear-gradient(to right, #C9D6FF, #E2E2E2);
+    background-clip:text;
+    -webkit-background-clip: text;
+    color:transparent;
+    font-size:30vh;
+}
+
+.error--page p{
+    font-weight: 700;
+    color: rgba(0,0,0,.4);
+    font-size:1.5em;
+    letter-spacing: .025em;
+}
+
+.error--page .button{
+    margin-top:2em;
+    padding:1em;
+    display:inline-block;
+    background:linear-gradient(to right, #65C7F7, #0052D4);
+    color:var(--white-color);
+    font-weight: 700;
+    border-radius:.5em;
+    transition:box-shadow .3s ease;
+}
+
+.error--page .button:hover{
+    box-shadow: 0 0 1em var(--shadow-low);
+}
+
+.settings--page main{
+    width:80vw;
+    margin:0 auto 2em;
+}
+
+.settings--page .main-subtitle{
+    margin-top:1em;
+}
+
+.settings--page input, .settings--page textarea, .settings--page button{
+    display:inline-block;
+    vertical-align:top;
+    background:#fff;
+    color:var(--black-color);
+    font-family: inherit;
+    border:0;
+    resize:none;
+    font-size:.9em;
+    padding:1em;
+    margin:.5em;
+    border-radius:.5em;
+    box-shadow: 0 0 1em rgba(0,0,0,.05);
+    width:20vw;
+}
+
+.settings--page button{
+    cursor: pointer;
+    width:initial;
+    transition:box-shadow .3s ease;
+    background:linear-gradient(to right, #C9D6FF, #E2E2E2);
+}
+
+.settings--page button:hover{
+    box-shadow: 0 0 1em var(--shadow-low);
+}
+
+.settings--page textarea{
+    width:40vw;
+}
+
+.settings--page .private{
+    font-weight: 700;
+    margin-bottom:1em;
+    margin-left:.5em;
+}
+
+.settings--page .switcher{
+    --switch-size:1.5em;
+    --switch-color: var(--black-color);
+    width:calc(var(--switch-size) * 2);
+    height:var(--switch-size);
+    padding:calc(var(--switch-size) * 0.1);
+    background:#fff;
+    border-radius:calc(var(--switch-size) * 1.2);
+    border:calc(var(--switch-size) * 0.1) solid var(--switch-color);
+    display:inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-left:.5em;
+    transition:border-color .3s ease;
+}
+
+.settings--page .switcher.on{
+    --switch-color: #0D47A1;
+}
+
+.settings--page .switcher.on::after{
+    margin-left:50%;
+}
+
+.settings--page .switcher::after{
+    content:"";
+    display:block;
+    width:50%;
+    height:100%;
+    background:var(--switch-color);
+    border-radius:50%;
+    transition:.3s ease;
+    transition-property: background, margin-left;
+}
+
+.forum--search--module .input{
+    width:calc(50vw + 3em);
+}
+
+.forum--search--module .input svg{
+    width:2em;
+    height:2em;
+    display:inline-block;
+    vertical-align:middle;
+}
+
+.forum--search--module .input input{
+    font-size:1.5em;
+    font-family:inherit;
+    background:none;
+    border:none;
+    padding:.5em;
+    width:50vw;
+    display: inline-block;
+    vertical-align: middle;
+    box-sizing: border-box;
+}
+
+.forum--search--module .list p{
+    margin-top:2em;
+    font-weight: 600;
+    font-size:1.2em;
+}
+
+.forum--search--module .list .rows div{
+    background: var(--accent-color);
+    display: inline-block;
+    vertical-align: middle;
+    padding:.4em .6em .4em 1.9em;
+    border-radius: 1em;
+    color: rgba(0,0,0,.8);
+    margin:1em .5em;
+    cursor: pointer;
+    position: relative;
+}
+
+.forum--search--module .list .rows div.selected::after{
+    content:"✖";
+    position:absolute;
+    left: .4em;
+    top: .15em;
+    font-size:1.3em;
+}
+
+.forum--format--module li{
+    margin:1em;
+}
+
+.admin--page h1{
+    font-size:3em;
+    text-align: center;
+    margin: 1em;
+}
+
+.admin--page .list{
+    width:70vw;
+    margin:0 auto;
+    text-align: center;
+}
+
+.admin--page .list a{
+    width:12vw;
+    background:#fff;
+    border-radius:1em;
+    box-shadow: 0 0 1em rgba(0,0,0,.05);
+    display: inline-block;
+    vertical-align: middle;
+    margin: 1em;
+    text-align:center;
+    font-weight: 600;
+    font-size:1.2em;
+    overflow:hidden;
+    white-space: nowrap;
+}
+
+.admin--page .list a .name{
+    margin-bottom:1.5em;
+}
+
+.admin--page .list a .delete{
+    color: #E53935;
+    font-size:.8em;
+}
+
+.admin--page .list a .delete svg{
+    width:1.2em;
+    height:1.2em;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: .5em;
+}
+
+.admin--page .list a img, .admin--page .list a svg{
+    width:10vw;
+    height:10vw;
+    border-radius:50%;
+    display: block;
+    margin:1em auto;
+}
+
+.admin--delete--module p{
+    font-weight: 700;
+    font-size:1.4em;
+    color: #E53935;
+}
+
+.admin--delete--module button{
+    border:none;
+    background:none;
+    font-family: inherit;
+    font-size:1.2em;
+    font-weight: 700;
+    padding:.75em;
+    display: inline-block;
+    vertical-align: middle;
+    cursor:pointer;
+    margin:1em .25em;
+    border-radius:.5em;
+}
+
+.admin--delete--module button.ok{
+    background: #E53935;
+    color: white;
+}
+
+@media (max-width: 1100px){
+    header nav a{
+        font-size:0;
+    }
+
+    header nav svg, header nav .user img{
+        height:1.5rem;
+        width:1.5rem;
+        margin:0 .5rem;
+    }
+
+    .post--details .info, .forum--page .forum--posts a .info, .user--forum .info{
+        float:initial;
+        margin-top:1.5em;
+    }
+
+    .settings--page input, .settings--page textarea, .settings--page button{
+        width:50vw;
+    }
+
+    .user--page .user-split>div, .forum--side, .user--forum .info{
+        display:block;
+    }
+
+    .user--data, .forum--side{
+        position:relative;
+    }
+
+    .forum--page .forum--posts, .forum--page .forum--create, .forum--side, .post--page .post--context, .post--comment, .comment--create, .user--page .user-split>div:first-of-type, .user--page .user-split>div{
+        width:100%;
+    }
+
+    .user--forum{
+        margin-top:5em;
+    }
+
+    .admin--page .list a{
+        width:25vw;
+    }
+}
